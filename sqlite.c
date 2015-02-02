@@ -47,7 +47,7 @@ if (mm->msgtype == 0) {
 /*
 if (mm->msgtype == 4 || mm->msgtype == 20){
 
-sql = sqlite3_mprintf( "INSERT INTO flights (modes, alt, df, msgs) VALUES ('%06X', '%d', '%d', '%ld')",mm->addr, a->altitude, mm->msgtype, a->messages);
+sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, alt, df, msgs) VALUES ('%06X', '%d', '%d', '%ld')",mm->addr, a->altitude, mm->msgtype, a->messages);
   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
   if( rc != SQLITE_OK ){
    fprintf(stderr, "SQL error: %s\n", zErrMsg);
@@ -60,7 +60,7 @@ sql = sqlite3_mprintf( "INSERT INTO flights (modes, alt, df, msgs) VALUES ('%06X
 
     /* DF 5/21 (Surveillance (roll call) IDENT Reply, has: alt, icao, flight status, DR, UM, squawk) */
 if (mm->msgtype == 5 || mm->msgtype == 21) {
-sql = sqlite3_mprintf( "INSERT OR IGNORE INTO flights (modes, alt, squawk, df, msgs) VALUES ('%06X', '%d', '%d', '%d', '%ld'); UPDATE flightslog SET modes='%06X', alt='%d', squawk='%d', df='%d', msgs='%d', last_update=CURRENT_TIMESTAMP WHERE modes='%06X';",mm->addr, mm->altitude, mm->modeA, mm->msgtype, a->messages,mm->addr, mm->altitude, mm->modeA, mm->msgtype, a->messages);
+sql = sqlite3_mprintf( "INSERT OR IGNORE INTO flightslog (modes, alt, squawk, df, msgs) VALUES ('%06X', '%d', '%d', '%d', '%ld'); UPDATE flightslog SET modes='%06X', alt='%d', squawk='%d', df='%d', msgs='%d', last_update=CURRENT_TIMESTAMP WHERE modes='%06X';",mm->addr, mm->altitude, mm->modeA, mm->msgtype, a->messages,mm->addr, mm->altitude, mm->modeA, mm->msgtype, a->messages);
   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
   if( rc != SQLITE_OK ){
    fprintf(stderr, "SQL error: %s\n", zErrMsg);
@@ -74,7 +74,7 @@ sql = sqlite3_mprintf( "INSERT OR IGNORE INTO flights (modes, alt, squawk, df, m
 /*
 if (mm->msgtype == 11) {
 
-sql = sqlite3_mprintf( "INSERT INTO flights (modes, df, msgs) VALUES ('%06X', '%d', '%ld')",mm->addr, mm->msgtype, a->messages);
+sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, df, msgs) VALUES ('%06X', '%d', '%ld')",mm->addr, mm->msgtype, a->messages);
   rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
   if( rc != SQLITE_OK ){
    fprintf(stderr, "SQL error: %s\n", zErrMsg);

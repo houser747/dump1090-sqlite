@@ -32,6 +32,4 @@ Maybe
 Usefull tools
 ---
 * SQLiteStudio http://sqlitestudio.pl
-* https://www.youtube.com/watch?v=9uUN6o4YydE
-* https://www.youtube.com/watch?v=IdzlO3YwoO4
 

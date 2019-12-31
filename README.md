@@ -14,7 +14,7 @@ Installation
 ---
 * cd ~
 * sudo apt-get install sqlite3 libsqlite3-dev -y
-* git clone https://github.com/DE8MSH/dump1090-sqlite.git
+* git clone https://github.com/houser747/dump1090-sqlite.git
 * cd dump1090-sqlite
 * wget basestation.sqb from anywhere
 * cat ./tools/create_tables.sql | sqlite3 basestation.sqb 

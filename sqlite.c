@@ -44,7 +44,7 @@ if (mm->msgtype == 0) {
 
 /* DF 4/20 (Surveillance (roll call) Altitude has: altitude, icao, flight status, DR, UM) */
 /* TODO flight status, DR, UM */
-/*
+
 if (mm->msgtype == 4 || mm->msgtype == 20){
 
 sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, alt, df, msgs) VALUES ('%06X', '%d', '%d', '%ld')",mm->addr, a->altitude, mm->msgtype, a->messages);
@@ -56,7 +56,7 @@ sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, alt, df, msgs) VALUES ('%
       fprintf(stdout, "msgtype 4/20 == OK\n");
    }
 }
-*/
+
 
     /* DF 5/21 (Surveillance (roll call) IDENT Reply, has: alt, icao, flight status, DR, UM, squawk) */
 if (mm->msgtype == 5 || mm->msgtype == 21) {
@@ -71,7 +71,7 @@ sql = sqlite3_mprintf( "INSERT OR IGNORE INTO flightslog (modes, alt, squawk, df
 }
 
  /* DF 11 */
-/*
+
 if (mm->msgtype == 11) {
 
 sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, df, msgs) VALUES ('%06X', '%d', '%ld')",mm->addr, mm->msgtype, a->messages);
@@ -83,7 +83,7 @@ sql = sqlite3_mprintf( "INSERT INTO flightslog (modes, df, msgs) VALUES ('%06X',
       fprintf(stdout, "msgtype 11 == OK\n");
    }
 }
-*/
+
     /* DF17 *with or without position data */
 
   if (mm->msgtype == 17) {
